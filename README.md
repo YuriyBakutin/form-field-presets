@@ -14,31 +14,31 @@
 
 Используется несколько вариантов компонентов в зависимости от того, какого характера должен быть ввод — однострочный текст, многострочный текст, дата, число, денежная сумма, Select, Multiselect и т.п. Он может быть выбран из имеющихся:
 
-*BooleanField.vue*
-*CheckboxBlockField.vue*
-*CheckboxBlockLightweightField.vue*
-*CheckboxField.vue*
-*CostField.vue*
-*DateField.vue*
-*DateIndicatorField.vue*
-*EditableListField.vue*
-*InputAutocompleteField.vue*
-*MultiSelectField.vue*
-*NumberField.vue*
-*NumberWithUnitsField.vue*
-*PasswordBaseField.vue*
-*PhoneField.vue*
-*PhotosUploadField.vue*
-*PhotoUploadField.vue*
-*RadioBlockField.vue*
-*SelectField.vue*
-*SelectMembershipPlanField.vue*
-*SelectPaymentMethodField.vue*
-*ServiceCheckboxField.vue*
-*TextAreaField.vue*
-*TextField.vue*
-*YearField.vue*
-*ZipCodeField.vue*
+*BooleanField.vue*,
+*CheckboxBlockField.vue*,
+*CheckboxBlockLightweightField.vue*,
+*CheckboxField.vue*,
+*CostField.vue*,
+*DateField.vue*,
+*DateIndicatorField.vue*,
+*EditableListField.vue*,
+*InputAutocompleteField.vue*,
+*MultiSelectField.vue*,
+*NumberField.vue*,
+*NumberWithUnitsField.vue*,
+*PasswordBaseField.vue*,
+*PhoneField.vue*,
+*PhotosUploadField.vue*,
+*PhotoUploadField.vue*,
+*RadioBlockField.vue*,
+*SelectField.vue*,
+*SelectMembershipPlanField.vue*,
+*SelectPaymentMethodField.vue*,
+*ServiceCheckboxField.vue*,
+*TextAreaField.vue*,
+*TextField.vue*,
+*YearField.vue*,
+*ZipCodeField.vue*.
 
 Каждый вариант **Field-компонента** отличается по функциональности взаимодействия с пользователем. Часть из этих вариантов использует html input, часть — выпадающий список, блок чекбоксов и т.п. Также есть отличия в настройках масок, и других технологий управления.
 
@@ -56,9 +56,9 @@
 
 ## Ключи объекта formFieldPresets
 
-В файле formFieldPresets.ts хранится объект настроек полей форм. Ключами объекта служат имена полей формы, соответствующие именам параметров модели. Эти имена-ключи прописываются в свойстве *name* **Field-компонента** . Такой подход работает в большинстве случаев, но при этом возможны конфликты имён, когда поля разных объектов модели имеют одинаковые имена. Кроме того, на формах могут использоваться поля, которые напрямую не связаны ни с каким параметром модели, но их настройки однотипны для разных форм, хотя имена полей при этом могут отличаться.
+В файле *formFieldPresets.ts* хранится объект настроек полей форм. Ключами объекта служат имена полей формы, соответствующие именам параметров модели. Эти имена-ключи прописываются в свойстве *name* **Field-компонента** . Такой подход работает в большинстве случаев, но при этом возможны конфликты имён, когда поля разных объектов модели имеют одинаковые имена. Кроме того, на формах могут использоваться поля, которые напрямую не связаны ни с каким параметром модели, но их настройки однотипны для разных форм, хотя имена полей при этом могут отличаться.
 
-Для разрешения таких конфликтов используется технология служебных имён. В этом случае для получения настроек из formFieldPresets.ts в **Field-компоненте** вместо *name* задаётся свойство *serviceName*, которое уже не соответствует имени поля формы и выбирается разработчиком произвольно. **Field-компонент** будет искать настройки в файле *formFieldPresets.ts* по ключу, заданному в свойстве *serviceName* при его наличии. При этом свойство *name*, если оно задано, будет проигнорировано.
+Для разрешения таких конфликтов используется технология служебных имён. В этом случае для получения настроек из *formFieldPresets.ts* в **Field-компоненте** вместо *name* задаётся свойство *serviceName*, которое уже не соответствует имени поля формы и выбирается разработчиком произвольно. **Field-компонент** будет искать настройки в файле *formFieldPresets.ts* по ключу, заданному в свойстве *serviceName* при его наличии. При этом свойство *name*, если оно задано, будет проигнорировано.
 
 Объект, найденный по ключу (*name* или *serviceName*), заданному в **Field-компоненте**, и будет пресетом, содержащим настройки этого компонента.
 
@@ -113,7 +113,7 @@
     asRequired: { hasSelected },
 ```
 
-Прочие правила валидации подключаются к **Field-компоненту** с помощью поля validationRules в пресете:
+Прочие правила валидации подключаются к **Field-компоненту** с помощью поля *validationRules* в пресете:
 
 ```typescript
     validationRules: {
